@@ -81,7 +81,8 @@ class BadModulusRSA {
 		BigInteger d = new BigInteger("65537").modInverse(phiN);
 		BigInteger PKCStext = c.modPow(d,n);
 		
-		pw.println( "The PKCS text is: " + PKCStext );
+		String PKCSstring = PKCStext.toString();
+		pw.println( "The PKCS text in hex is: " + new BigInteger(PKCSstring,10).toString(16));
 	}
 	
 	private static BigInteger sqrt(BigInteger n) {
